@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>WebGL Globe</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/scene.css" />
+    </head>
+    <body>
+
+        <div id="container"></div>
+
+        <div id="info">
+            <strong><a href="http://www.chromeexperiments.com/globe">WebGL Globe</a></strong> <span class="bull">&bull;</span> Created by the Google Data Arts Team <span class="bull">&bull;</span> Data acquired from <a href="http://sedac.ciesin.columbia.edu/gpw/">SEDAC</a>
+        </div>
+
+        <div id="currentInfo">
+            <span id="year1990" class="year">1990</span>
+            <span id="year1995" class="year">1995</span>
+            <span id="year2000" class="year">2000</span>
+        </div>
+
+        <div id="title">
+            World Population
+        </div>
+
+        <script type="text/javascript" src="js/third-party/Detector.js"></script>
+        <script type="text/javascript" src="js/third-party/three.min.js"></script>
+        <script type="text/javascript" src="js/third-party/Tween.js"></script>
+        <script type="text/javascript" src="js/globe.js"></script>
+        <script type="text/javascript">
+            document.body.style.backgroundImage = 'none'; // remove loading
+
+            var container = document.getElementById('container');
+            var globe = new DAT.Globe(container);
+            globe.addData([], {format: 'magnitude', animated: false});
+            globe.createPoints();
+            globe.animate();
+
+            var animate = function() {
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            console.log(globe);
+            var time = 0;
+            setInterval(function() {
+                time++;
+                xhr = new XMLHttpRequest();
+                xhr.open('GET', 'data.php?offset=' + time, true);
+                xhr.onreadystatechange = function(e) {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            window.data = data;
+                            globe.addData(data, {format: 'magnitude', animated: false});
+                            globe.createPoints();
+                            globe.animate();
+                        }
+                    }
+                };
+                xhr.send(null);
+            }, 1000);
+        </script>
+    </body>
+
+</html>
