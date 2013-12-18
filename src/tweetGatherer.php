@@ -43,3 +43,5 @@ foreach ($searchResponse->statuses as $tweet) {
     var_dump($tweet->coordinates);
     echo "</pre>";
 }
+
+//testing comments
