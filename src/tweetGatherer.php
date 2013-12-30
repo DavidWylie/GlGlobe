@@ -1,5 +1,6 @@
 <?php
 require_once('../init_autoloader.php');
+require_once('Db.php');
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -34,14 +35,32 @@ if (!$response->isSuccess()) {
 }
 
 // Search for something:
-$searchResponse = $tweetGather->search->tweets('mandela');
+$searchResponse = $tweetGather->search->tweets('new year');
+$db = new Db('../data/tweet.db');
 
 foreach ($searchResponse->statuses as $tweet) {
+    $twitTime = $tweet->created_at;
+    
+    
+    $data = array(
+        'text' => $tweet->text,
+        'time' => strtotime($twitTime),
+        'lat'  => 0,
+        'lon' => 0,
+        'twit_id' => $tweet->id_str
+    );
+    
+    if ($tweet->coordinates){
+        $data['lat'] = $tweet->coordinates->coordinates[1];
+        $data['lon'] = $tweet->coordinates->coordinates[0];
+        
+    }
     echo "<pre>";  
     var_dump($tweet->text);
     var_dump($tweet->user->location);
     var_dump($tweet->coordinates);
     echo "</pre>";
+    $db->saveTweet($data);
 }
 
 //testing comments

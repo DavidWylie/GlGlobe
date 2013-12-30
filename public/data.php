@@ -1,21 +1,20 @@
 <?php
-
+require_once('../src/Db.php');
 /**
  * @param string $fileName
  * @return array
  */
-function getTweetData($fileName) {
-    $data = file($fileName);
-    $parsedData = array();
-    foreach ($data as $tweet) {
-        $jsonData = json_decode($tweet);
-        $longitude = $jsonData->latLon->lon;
-        $latitude = $jsonData->latLon->lat;
-        $dateTime = new \DateTime($jsonData->date);
-        $parsedData[$dateTime->getTimestamp()] = [$latitude,$longitude,0.4];
+function getTweetData($fileName,$time=0) {
+    $db = new Db($fileName);
+    if($time==0) {
+        $timeRange = $db->getTimeRange();
+        $time = $timeRange['minTime'];
     }
-    ksort($parsedData);
-    return array_values($parsedData);
+    $tweets = $db->getTweets($time);
+    foreach ($tweets as $tweet) {
+        $parsedData[] = [$tweet['lat'],$tweet['lon'],0.4];
+    }
+    return $parsedData;
 }
 
 if(is_numeric($_REQUEST['offset'])) {
@@ -25,7 +24,7 @@ if(is_numeric($_REQUEST['offset'])) {
 }
 //test
 
-$data = getTweetData(__DIR__ . '/data/goodmorning4.json');
-$returnedData = json_encode($data[$offset]);
-// hel;lo
+$data = getTweetData('data/tweets.db',$offset);
+$returnedData = json_encode($data);
+
 echo $returnedData;

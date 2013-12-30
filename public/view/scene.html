@@ -28,8 +28,6 @@
         <script type="text/javascript" src="js/third-party/Tween.js"></script>
         <script type="text/javascript" src="js/globe.js"></script>
         <script type="text/javascript">
-            
-            var dataset = <? php echo $dataset;?>;
             document.body.style.backgroundImage = 'none'; // remove loading
 
             var container = document.getElementById('container');
@@ -46,7 +44,6 @@
 
             console.log(globe);
             var time = 0;
-            var interval = U;
             setInterval(function() {
                 time++;
                 xhr = new XMLHttpRequest();
