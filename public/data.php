@@ -24,7 +24,7 @@ if(is_numeric($_REQUEST['offset'])) {
 }
 //test
 
-$data = getTweetData('data/tweets.db',$offset);
+$data = getTweetData('../data/tweets.db',$offset);
 $returnedData = json_encode($data);
 
 echo $returnedData;

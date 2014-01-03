@@ -14,7 +14,8 @@ Detector = {
 
     var domElement = document.createElement( 'div' );
 
-    domElement.style.fontFamily = 'monospace';
+    //domElement.style.fontFamily = 'monospace';
+    domElement.style.fontFamily = 'Press Start 2P', cursive;
     domElement.style.fontSize = '13px';
     domElement.style.textAlign = 'center';
     domElement.style.background = '#eee';
