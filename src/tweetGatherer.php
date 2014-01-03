@@ -31,6 +31,7 @@ $tweetGather = new \ZendService\Twitter\Twitter($config);
 // Verify your credentials:
 $response = $tweetGather->account->verifyCredentials();
 if (!$response->isSuccess()) {
+    var_dump($response->getContent());
     die('Something is wrong with my credentials!');
 }
 
@@ -45,18 +46,21 @@ if (is_string($_REQUEST['search'])) {
 
 $db = new Db("../data/$searchDb.db");
 
-// Search for something:
-$options = array(
-    'geocode'=> '51.4500,0.0500,40000km', 
-);
-
-if (is_string($_REQUEST['lastTwitId'])) {
-  $options['since_id'] = $_REQUEST['lastTwitId'];
+$lastTwitId=0;
+if (array_key_exists('last_twit_id', $_REQUEST) && is_string($_REQUEST['last_twit_id'])) {
+ $lastTwitId = $_REQUEST['last_twit_id'];
 } else {
     $db->createTables();
 }
 
-//$searchResponse = $tweetGather->searchTweets($searchTerm,$options);
+
+// Search for something:
+$options = array(
+    'geocode'=> '51.45,0.05,40000km', 
+    'since_id' => $lastTwitId,
+);
+
+$searchResponse = $tweetGather->searchTweets($searchTerm,$options);
 
 
 foreach ($searchResponse->statuses as $tweet) {
@@ -74,9 +78,9 @@ foreach ($searchResponse->statuses as $tweet) {
         $data['lat'] = $tweet->coordinates->coordinates[1];
         $data['lon'] = $tweet->coordinates->coordinates[0];
         
-    }
-echo "<li>{$tweet->id_str}</li>";
-    $db->saveTweet($data);
+        if($tweet->id_str != $lastTwitId) {
+            echo "<li>{$tweet->id_str}</li>";
+            $db->saveTweet($data);
+        }
+    } 
 }
-
-//testing comments

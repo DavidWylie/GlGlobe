@@ -15,8 +15,8 @@ and open the template in the editor.
                 setInterval(function() {
                        xhr = new XMLHttpRequest();
                        query =  '../src/tweetGatherer.php?search=' + search;
-                       if(lastId != 0) {
-                           query = query+'&lastTwitId='+lastId;
+                       if(lastId !== 0) {
+                           query +='&last_twit_id='+lastId;
                        }
                        xhr.open('GET',query, true);
                        xhr.onreadystatechange = function(e) {
@@ -29,7 +29,7 @@ and open the template in the editor.
                            }
                        };
                        xhr.send(null);
-                   }, 60*1000);
+                   }, 20*1000);
             </script>
             <p>Twit Ids</p>
             <ul id='twits'></ul>
