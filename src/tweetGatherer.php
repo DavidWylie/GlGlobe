@@ -34,14 +34,34 @@ if (!$response->isSuccess()) {
     die('Something is wrong with my credentials!');
 }
 
+
+if (is_string($_REQUEST['search'])) {
+    $searchTerm = urldecode($_REQUEST['search']);
+    $searchDb = str_replace(' ','_',$searchTerm);
+} else {
+    $searchDb = 'tweets';
+    $searchTerm = 'New Year';
+}
+
+$db = new Db("./data/$searchDb.db");
+
 // Search for something:
-$searchResponse = $tweetGather->search->tweets('new year');
-$db = new Db('../data/tweet.db');
+$options = array(
+    'geocode'=> '51.4500,0.0500,40000km', 
+);
+
+if (is_string($_REQUEST['lastTwitId'])) {
+  $options['since_id'] = $_REQUEST['lastTwitId'];
+} else {
+    $db->createTables();
+}
+
+$searchResponse = $tweetGather->searchTweets($searchTerm,$options);
+
 
 foreach ($searchResponse->statuses as $tweet) {
     $twitTime = $tweet->created_at;
-    
-    
+       
     $data = array(
         'text' => $tweet->text,
         'time' => strtotime($twitTime),
@@ -55,11 +75,7 @@ foreach ($searchResponse->statuses as $tweet) {
         $data['lon'] = $tweet->coordinates->coordinates[0];
         
     }
-    echo "<pre>";  
-    var_dump($tweet->text);
-    var_dump($tweet->user->location);
-    var_dump($tweet->coordinates);
-    echo "</pre>";
+echo "<li>{$tweet->id_str}</li>";
     $db->saveTweet($data);
 }
 

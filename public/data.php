@@ -22,9 +22,15 @@ if(is_numeric($_REQUEST['offset'])) {
 } else {
     $offset = 0;
 }
-//test
 
-$data = getTweetData('data/tweets.db',$offset);
+if (is_string($_REQUEST['search'])) {
+    $searchDb = $_REQUEST['search'];
+    $searchDb = str_replace(' ','_', $searchDb);
+} else {
+    $searchDb = 'tweets';
+}
+
+$data = getTweetData("data/$searchterm.db",$offset);
 $returnedData = json_encode($data);
 
 echo $returnedData;

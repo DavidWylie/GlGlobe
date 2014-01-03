@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Get Data</title>
+    </head>
+    <body>
+          <script type="text/javascript">
+              var search = 'New Year';
+                var lastId = 0;           
+                setInterval(function() {
+                       xhr = new XMLHttpRequest();
+                       query =  '../src/tweetGatherer.php?search=' + search;
+                       if(lastId != 0) {
+                           query = query+'&lastTwitId='+lastId;
+                       }
+                       xhr.open('GET',query, true);
+                       xhr.onreadystatechange = function(e) {
+                           if (xhr.readyState === 4) {
+                               if (xhr.status === 200) {
+                                   data = xhr.responseText;
+                                   document.getElementById('twits').innerHTML += data;
+                                   lastId = document.getElementById('twits').lastChild.textContent
+                               }
+                           }
+                       };
+                       xhr.send(null);
+                   }, 60*1000);
+            </script>
+            <p>Twit Ids</p>
+            <ul id='twits'></ul>
+    </body>
+</html>
