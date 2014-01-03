@@ -37,13 +37,13 @@ if (!$response->isSuccess()) {
 
 if (is_string($_REQUEST['search'])) {
     $searchTerm = urldecode($_REQUEST['search']);
-    $searchDb = str_replace(' ','_',$searchTerm);
+    $searchDb = strtolower(str_replace(' ','_',$searchTerm));
 } else {
     $searchDb = 'tweets';
     $searchTerm = 'New Year';
 }
 
-$db = new Db("./data/$searchDb.db");
+$db = new Db("../data/$searchDb.db");
 
 // Search for something:
 $options = array(
@@ -56,7 +56,7 @@ if (is_string($_REQUEST['lastTwitId'])) {
     $db->createTables();
 }
 
-$searchResponse = $tweetGather->searchTweets($searchTerm,$options);
+//$searchResponse = $tweetGather->searchTweets($searchTerm,$options);
 
 
 foreach ($searchResponse->statuses as $tweet) {

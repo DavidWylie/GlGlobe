@@ -30,7 +30,7 @@ if (is_string($_REQUEST['search'])) {
     $searchDb = 'tweets';
 }
 
-$data = getTweetData("data/$searchterm.db",$offset);
+$data = getTweetData("../data/$searchterm.db",$offset);
 $returnedData = json_encode($data);
 
 echo $returnedData;
