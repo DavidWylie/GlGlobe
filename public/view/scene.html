@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="description" content="A realtime simulation of all tracked Twitter messages."/>
         <link href='http://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Orbitron:400' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/scene.css" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     </head>
@@ -25,10 +26,10 @@
 
 <div id="title">
     <h1><b><a>Data Painting</a></b></h1>
-    <div>     
+    <div id="back" >     
         <p id="description">   
             Select Tweet database: 
-            <select id="language">
+            <select id="language" class="dropdown" class="dropdown">
                 <option value="default">Pick database...</option>
                 <option value="one">Nelson Mandela</option>
                 <option value="two">UK React</option>
