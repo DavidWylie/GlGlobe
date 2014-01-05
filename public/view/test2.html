@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <!--- styles --->
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+
+    <!--- libraries --->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="scripts/lib/spotter-0.2.5.min.js"></script>
+
+    <!--- program --->
+    <script src="scripts/src/script.js"></script>
+
+  </head>
+
+  <body>
+        <div class="container" style="padding-top: 50px;">
+                <h1 align="center">Randomized Tweet Cloud</h1>
+                <h2 align="center">enter your search term in the box below</h2>
+                <div class="row">
+                        <div class="span16" style="padding-top: 20px;">
+                                <div id="content">
+                                        <div id="removeMe">
+                                                <p align="center" ><input id="search_term_input" type="text" placeholder="search"></input></p>
+                                                <p align="center"><button class="btn" id="startButton">Engage!</button></p>
+                                        </div>        
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="span16">
+                                <div id="wordCountsDiv">
+                                </div>
+                        </div>
+                </div>
+        </div>
+  </body>
+</html>

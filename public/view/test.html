@@ -11,8 +11,43 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width">
         <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="./css/scene.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     </head>
     <body>
         <div>TODO write content</div>
+
+        <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+        <script>
+            new TWTR.Widget({
+                version: 2,
+                type: 'profile',
+                rpp: 4,
+                interval: 6000,
+                width: 216,
+                height: 240,
+                theme: {
+                    shell: {
+                        background: '#ffffff',
+                        color: '#292b2c'
+                    },
+                    tweets: {
+                        background: '#f6f6f6',
+                        color: '#292b2c',
+                        links: '#1388d2'
+                    }
+                },
+                features: {
+                    scrollbar: false,
+                    loop: false,
+                    live: true,
+                    hashtags: true,
+                    timestamp: true,
+                    avatars: false,
+                    behavior: 'all'
+                }
+            }).render().setUser('ganasal').start();
+        </script>
+
     </body>
 </html>
+

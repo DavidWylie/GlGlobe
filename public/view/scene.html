@@ -29,12 +29,19 @@
         <p id="description">   
             Select Tweet database: 
             <select id="language">
+                <option value="default">Pick database...</option>
                 <option value="one">Nelson Mandela</option>
                 <option value="two">UK React</option>
                 <option value="three">Live earth</option>
             </select>
 
         <div>
+            
+            <div id="related_default_content" class="show">
+                Use the drop down menu above to pick a live dataset
+            </div>
+
+            
             <div id="related_one_content" class="hidden">
                 Geo tagged tweets realating to the news of Nelson Mandela passing demonstrating the exponential growth of news items via socal networkig
             </div>
@@ -67,7 +74,7 @@
                 }
             </script>
             
-            <datalist id=speedsettings>
+            <datalist id=range>
                 <option>0</option>
                 <option>200</option>
                 <option>400</option>

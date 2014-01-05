@@ -20,12 +20,12 @@
       }
       
       #container    {
-          position: absolute;
+          position:absolute;
           left: 360px;
           top: 2px;
-          float: right;
+          float: left;
           width: 1000px;
-          hight: 300px;
+          //hight: 300px;
           
       }
       
@@ -127,7 +127,7 @@
 
         }*/
 
-                input[type=”range”]::-webkit-slider-thumb {
+                input[type=”range”]::-webkit-slider-thumb ::-moz-range-thumb, ::-ms-thumb {
                     -webkit-appearance: none;
                     width:20px;
                     height: 20px;
