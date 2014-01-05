@@ -31,7 +31,6 @@ $tweetGather = new \ZendService\Twitter\Twitter($config);
 // Verify your credentials:
 $response = $tweetGather->account->verifyCredentials();
 if (!$response->isSuccess()) {
-    var_dump($response->getContent());
     die('Something is wrong with my credentials!');
 }
 

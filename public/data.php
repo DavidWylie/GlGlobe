@@ -26,6 +26,7 @@ if(is_numeric($_REQUEST['offset'])) {
 if (is_string($_REQUEST['search'])) {
     $searchDb = $_REQUEST['search'];
     $searchDb = str_replace(' ','_', $searchDb);
+    $searchDb = strtolower($searchDb);
 } else {
     $searchDb = 'tweets';
 }
