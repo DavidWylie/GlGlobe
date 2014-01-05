@@ -9,13 +9,13 @@
         <link rel="stylesheet" type="text/css" href="css/scene.css" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     </head>
-    
-    
-    
-    
+
+
+
+
     <body>
 
-        
+
 
 
         <div id="info">
@@ -25,24 +25,25 @@
 
 
 <div id="title">
-    <h1><b><a>Data Painting</a></b></h1>
+    <h1 id="datatitle"><b>Data Painting</b></h1>
     <div id="back" >     
-        <p id="description">   
             Select Tweet database: 
-            <select id="language" class="dropdown" class="dropdown">
+            <div class="styled-select">
+            <select id="select" class="dropdown">
                 <option value="default">Pick database...</option>
                 <option value="one">Nelson Mandela</option>
                 <option value="two">UK React</option>
                 <option value="three">Live earth</option>
             </select>
+            </div>
 
         <div>
-            
+
             <div id="related_default_content" class="show">
                 Use the drop down menu above to pick a live dataset
             </div>
 
-            
+
             <div id="related_one_content" class="hidden">
                 Geo tagged tweets realating to the news of Nelson Mandela passing demonstrating the exponential growth of news items via socal networkig
             </div>
@@ -57,10 +58,10 @@
         </div>
 
         <script>
-        $("#language").on("change", function() {
-            id = "related_" + $(this).val() + "_content";
-            $("#" + id).show().siblings().hide()
-        })
+            $("#select").on("change", function() {
+                id = "related_" + $(this).val() + "_content";
+                $("#" + id).show().siblings().hide()
+            })
         </script>
 
 
@@ -71,10 +72,10 @@
             <input type="range" name="range" min="0" max="2000" step="200" value="1000" id="speedsettings" onchange="outputUpdate(value)" >  
             <script>
                 function outputUpdate(speednum) {
-                document.querySelector('#speednum').value = vol;
+                    document.querySelector('#speednum').value = vol;
                 }
             </script>
-            
+
             <datalist id=range>
                 <option>0</option>
                 <option>200</option>
@@ -84,7 +85,7 @@
                 <option>1000</option>
             </datalist>
 
-            
+
             <output name="result">  </output>  
         </form> 
         </p>
@@ -92,61 +93,66 @@
 </div>
 
 
-        <div id="container">
-            
-        </div>
+<div id="container">
+
+</div>
 
 
 
 
 
 
-        <script type="text/javascript" src="js/third-party/Detector.js"></script>
-        <script type="text/javascript" src="js/third-party/three.min.js"></script>
-        <script type="text/javascript" src="js/third-party/Tween.js"></script>
-        <script type="text/javascript" src="js/globe.js"></script>
-        <script type="text/javascript">
-            document.body.style.backgroundImage = 'none'; // remove loading
+<script type="text/javascript" src="js/third-party/Detector.js"></script>
+<script type="text/javascript" src="js/third-party/three.min.js"></script>
+<script type="text/javascript" src="js/third-party/Tween.js"></script>
+<script type="text/javascript" src="js/globe.js"></script>
+<script type="text/javascript">
+                document.body.style.backgroundImage = 'none'; // remove loading
 
-            var container = document.getElementById('container');
-            var globe = new DAT.Globe(container);
-            globe.addData([], {format: 'magnitude', animated: false});
-            globe.createPoints();
-            globe.animate();
-            
-            var animate = function() {
-                requestAnimationFrame(animate);
-            }
+                var container = document.getElementById('container');
+                var globe = new DAT.Globe(container);
+                globe.addData([], {format: 'magnitude', animated: false});
+                globe.createPoints();
+                globe.animate();
 
-            animate();
+                var animate = function() {
+                    requestAnimationFrame(animate);
+                }
 
-            console.log(globe);
-            var time = 0;
-            setInterval(function() {
-                time++;
-                xhr = new XMLHttpRequest();
-                xhr.open('GET', 'data.php?offset=' + time, true);
-                xhr.onreadystatechange = function(e) {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            var data = JSON.parse(xhr.responseText);
-                            window.data = data;
-                            globe.addData(data, {format: 'magnitude', animated: false});
-                            globe.createPoints();
-                            globe.animate();
+                animate();
+
+                console.log(globe);
+                var time = 0;
+                setInterval(function() {
+                    time++;
+                    xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'data.php?offset=' + time, true);
+                    xhr.onreadystatechange = function(e) {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                var data = JSON.parse(xhr.responseText);
+                                window.data = data;
+                                globe.addData(data, {format: 'magnitude', animated: false});
+                                globe.createPoints();
+                                globe.animate();
+                            }
                         }
-                    }
-                };
-                xhr.send(null);
+                    };
+                    xhr.send(null);
 
 
 
-            }, 2000);
-       </script>
-        
-        
-        
-        
+                }, 2000);
+</script>
+
+
+<div id="righthand">
+   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+</div>
+
+
+
 <!--        <div id="730c21a4-ea0a-423c-b114-e5b7bd2f8601" class="control-sidebar control-sidebar-left" style="display: inline; position: absolute; top: 100px; left: 10px;">
             <div class="control-outter-container">
                 <div id="77905238-ef38-4fd5-8fea-ad9b4fc4d44d" class="control-container">
@@ -202,7 +208,7 @@
                 </div>
             </div>
         </div>-->
-        
-    </body>
+
+</body>
 
 </html>
