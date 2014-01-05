@@ -29,22 +29,22 @@
         <p id="description">   
             Select Tweet database: 
             <select id="language">
-                <option value="en">english</option>
-                <option value="fr">french</option>
-                <option value="gr">german</option>
+                <option value="one">Nelson Mandela</option>
+                <option value="two">UK React</option>
+                <option value="three">Live earth</option>
             </select>
 
         <div>
-            <div id="related_en_content" class="hidden">
-                english text
+            <div id="related_one_content" class="hidden">
+                Geo tagged tweets realating to the news of Nelson Mandela passing demonstrating the exponential growth of news items via socal networkig
             </div>
 
-            <div id="related_fr_content" class="hidden">
-                french text
+            <div id="related_two_content" class="hidden">
+                weather..
             </div>
 
-            <div id="related_gr_content" class="hidden">
-                german text
+            <div id="related_three_content" class="hidden">
+                Earth quake data...
             </div>
         </div>
 
@@ -55,11 +55,28 @@
         })
         </script>
 
-           
+
         <p>
-        <form method="post">  
-            <h4> Speed </h4>  
-            <input type="range" name="range" min="0" max="2000" step="200" value="1000">  
+        <form method="speed">  
+            <!--  <h4> Speed </h4>  -->
+            <label for=speed>speed</label>
+            <input type="range" name="range" min="0" max="2000" step="200" value="1000" id="speedsettings" onchange="outputUpdate(value)" >  
+            <script>
+                function outputUpdate(speednum) {
+                document.querySelector('#speednum').value = vol;
+                }
+            </script>
+            
+            <datalist id=speedsettings>
+                <option>0</option>
+                <option>200</option>
+                <option>400</option>
+                <option>600</option>
+                <option>800</option>
+                <option>1000</option>
+            </datalist>
+
+            
             <output name="result">  </output>  
         </form> 
         </p>
