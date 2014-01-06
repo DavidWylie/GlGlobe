@@ -1,4 +1,5 @@
 <?php
+set_time_limit(0);
 require_once('../src/Db.php');
 
 $data = file_get_contents('../json/all_month.geojson');
