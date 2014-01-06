@@ -32,17 +32,20 @@
       
       #container    {
           position:absolute;
-          left: 340px;
-          top: 2px;
-          float: left;
+          float:outside;
+          left: -190px;
+          //right: 60px;
+          top: -200px;
+          //bottom: 50px;  
           width: 1000px;
-          //height:auto;
+          height:auto;
       }
       
       #info {
 
         font-size: 11px;
         position: absolute;
+        float: top;
         bottom: 10px;
         background-color: rgba(0,0,0,0.8);
         border-radius: 3px;
@@ -96,10 +99,11 @@
       
       #righthand {
           position:absolute;
+          float: right;
           text-align: center;
-          top: 750px;
+          top: 100px;
           width: 270px;
-          left: 1350px;
+          left: 1335px;
           background-color: rgba(0,0,0,0.2);
           border-radius: 3px;
           padding: 10px;
@@ -108,7 +112,7 @@
           border-color:#ffffff;
           -moz-border-radius: 10px;
           border-radius: 10px; 
-          top: 300px;
+          //top: 300px;
           box-shadow: 0px 0px 15px 0px #ffffff;
           text-shadow: 1px 1px 3px #888;
 
