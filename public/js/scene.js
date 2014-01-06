@@ -1,8 +1,4 @@
-var globe;
-var container;
-var animate;
-var search;
-var time;
+
 
 function setMinTime() {
     return $.ajax({type: 'GET', url: 'times.php?search=' + search, async: false});
@@ -31,7 +27,7 @@ function initGlobe() {
     globe.addData([], {format: 'magnitude', animated: false});
     globe.createPoints();
     globe.animate();
-    window.globe = globe;
+
     animate = function() {
         requestAnimationFrame(animate);
     }
@@ -42,17 +38,22 @@ function initGlobe() {
 function setGlobeData() {
     setInterval(function() {
         interval = 5000;
-        time = time+interval;
+        time = time + interval;
         dataResp = $.ajax({
-            url:'data.php?offset=' + time + '&search=' + search + '&interval=' + interval,
+            type: 'GET',
+            url: 'data.php?offset=' + time + '&search=' + search + '&interval=' + interval,
             async: false
         });
         dataObj = dataResp.responseText;
         data = jQuery.parseJSON(dataObj);
-        
-        globe.addData(data, {format: 'magnitude', animated: false});
-        globe.createPoints();
-        globe.animate();
+        window.data = data;
+        if (data.length > 0) {
+            for (i = 0; i < data.length; i += 1) {
+                globe.addData(data[i], {format: 'magnitude', animated: false});
+            }
+            globe.createPoints();
+            globe.animate();
+        }
     }, 2000);
 }
 

@@ -21,25 +21,25 @@
         </div>
 
         <div id="title">
-    <hr>
-    <h1 id="datatitle"><b>Data Painting</b></h1>
-    <div id="back" >  
-        <hr>
+            <hr>
+            <h1 id="datatitle"><b>Data Painting</b></h1>
+            <div id="back" >  
+                <hr>
                 <div id="description">   
-        <br>
+                    <br>
                     Select Tweet database: 
-            <br>
-            <div class="styled-select">
-            <select id="language" class="dropdown">
-                        <option value="default">Pick database...</option>
-                        <option value="one">Nelson Mandela</option>
-                        <option value="two">UK React</option>
-                        <option value="three">Live earth</option>
-                    </select>
-            </div>
-            <br>
-            <br>
- 
+                    <br>
+                    <div class="styled-select">
+                        <select id="language" class="dropdown">
+                            <option value="default">Pick database...</option>
+                            <option value="one">Nelson Mandela</option>
+                            <option value="two">UK React</option>
+                            <option value="three">Live earth</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+
                     <div>
 
                         <div id="related_default_content" class="show">
@@ -48,27 +48,34 @@
 
 
                         <div id="related_one_content" class="hidden">
-                Geo tagged tweets realating to the news of Nelson Mandela passing demonstrating the exponential growth of news items via socal networking.
-                <br>
-                <br>
+                            Geo tagged tweets realating to the news of Nelson Mandela passing demonstrating the exponential growth of news items via socal networking.
+                            <br>
+                            <br>
                         </div>
 
                         <div id="related_two_content" class="hidden">
                             weather..
-                <br>
-                <br>
+                            <br>
+                            <br>
                         </div>
 
                         <div id="related_three_content" class="hidden">
                             Earth quake data...
-                <br>
-                <br>
+                            <br>
+                            <br>
                         </div>
-            <br>
-            <br>
+                        <br>
+                        <br>
                     </div>
-<br><br>
+                    <br><br>
                     <script>
+                        var globe;
+                        var container;
+                        var animate;
+                        var search;
+                        var time;
+                        var data;
+
                         $(document).ready(function() {
                             setDataList();
                         });
@@ -85,10 +92,10 @@
                         })
                     </script>
 
-        <hr>
-        
+                    <hr>
+
                     <p>
-            <br>
+                        <br>
                     <form method="get">  
                         <!--  <h4> Speed </h4>  -->
                         <label for=speed>speed</label>
@@ -105,20 +112,20 @@
 
                         <output name="result">  </output>  
                     </form> 
-        <br>
+                    <br>
                     </p>
                 </div>
             </div>
 
 
-<div id="container">
+            <div id="container">
 
-</div>
+            </div>
 
-<div id="righthand">
-   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            <div id="righthand">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-</div>
+            </div>
 
             <!--        <div id="730c21a4-ea0a-423c-b114-e5b7bd2f8601" class="control-sidebar control-sidebar-left" style="display: inline; position: absolute; top: 100px; left: 10px;">
                         <div class="control-outter-container">
@@ -176,6 +183,6 @@
                         </div>
                     </div>-->
 
-</body>
+    </body>
 
 </html>
