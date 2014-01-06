@@ -8,10 +8,9 @@ if (is_string($_REQUEST['search'])) {
 } else {
     $searchDb = 'tweets';
 }
-
-$db = new Db($searchDb);
+$db = new Db("../data/$searchDb.db");
 $timeRange = $db->getTimeRange();
-
+$db->close();
 echo json_encode($timeRange);
 
 

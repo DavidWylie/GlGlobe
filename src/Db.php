@@ -27,13 +27,17 @@ class Db extends SQLite3{
         $this->exec($sql);
     }
     
+    /**
+     * @return type
+     */
     public function getTimeRange()
     {
         $sql = "SELECT max(time) as maxTime, min(time) as minTime from tweet";
         $ret = $this->query($sql);
+       $arr =  $ret->fetchArray();
         return  array(
-            'maxTime' => $ret['maxTime'],
-            'minTime' => $ret['minTime'],
+            'maxTime' => $arr['maxTime'],
+            'minTime' => $arr['minTime'],
         );        
     }
     
@@ -42,19 +46,23 @@ class Db extends SQLite3{
      * @param string $time
      * @return array
      */
-    public function getTweets($time)
+    public function getTweets($time,$interval)
     {
-        $sql = "SELECT * from tweet where time between $time and ($time -1)";
+        $sql = "SELECT * from tweet where time between ($time -$interval) and  $time";
+
         $ret = $this->query($sql);
+        $tweet = $ret->fetchArray();
         $arrResults = array();
-        foreach($tweet as $ret){
+        
+        while ($tweet){
            $arrResults[] = array(
-               'text' => $ret['text'],
-               'lat' => $ret['lat'],
-               'lon' => $ret['lon'],
-               'time' => $ret['time'],
-               'twit_id' => $ret['twit_id']
+               'text' => $tweet['text'],
+               'lat' => $tweet['lat'],
+               'lon' => $tweet['lon'],
+               'time' => $tweet['time'],
+               'twit_id' => $tweet['twit_id']
            ); 
+           $tweet = $ret->fetchArray();
         }        
         return $arrResults; 
     }
