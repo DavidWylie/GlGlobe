@@ -9,12 +9,12 @@ require_once('Db.php');
 
 $config = array(
     'access_token' => array(
-        'token'  => '170839498-MldUAZKuSq9qSm9oesXXG2XHEsGEKGLIOCSnKrPC',
-        'secret' => 'cXDfheKi71mMWqsO2EzSNOfSk9LqpR1DMEdnjD1bYRRaE',
+        'token'  => '36223830-Ka2R6vk4w3W3uWKN5EJefVhWLhaCIOf58m7EJ5saH',
+        'secret' => 'm7mmmtglNISQXlA9UcyXYd54bz05Y5HQHWRrj0HuVaM',
     ),
     'oauth_options' => array(
-        'consumerKey' => 'EQpBJmAUR5R5ZgSmKDFFA',
-        'consumerSecret' => 'XJHnRslgCIkPxGBc4seSo8FHQQQBgdCcPN8LUA',
+        'consumerKey' => 'EYWBnpqHKDOKYp7qOgX7cA',
+        'consumerSecret' => '3ibcwX89JYlwfSMywG3HbjGsC08UEhq7CjS8QzTw',
     ),
     'http_client_options' => array(
         'adapter' => 'Zend\Http\Client\Adapter\Curl',
@@ -40,7 +40,8 @@ if (is_string($_REQUEST['search'])) {
     $searchDb = strtolower(str_replace(' ','_',$searchTerm));
 } else {
     $searchDb = 'tweets';
-    $searchTerm = 'New Year';
+    $searchTerm = 'depressed';
+
 }
 
 $db = new Db("../data/$searchDb.db");

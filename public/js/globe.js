@@ -87,7 +87,8 @@ DAT.Globe = function(container, colorFn) {
 
   function init() {
 
-    container.style.color = '#fff';
+    //container.style.color = '#fff';
+    container.style.color = 'red';
     container.style.font = '13px/20px Arial, sans-serif';
 
     var shader, uniforms, material;
