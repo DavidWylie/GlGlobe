@@ -1,4 +1,4 @@
 <?php
 //output to view.
-include('view/scene.html');
+include('view/index.html');
 

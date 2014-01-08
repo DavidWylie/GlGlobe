@@ -1,4 +1,6 @@
-
+var canvas;
+var container;
+var gl;
 
 function setMinTime() {
     return $.ajax({type: 'GET', url: 'times.php?search=' + search, async: false});
@@ -16,6 +18,14 @@ function setDataList() {
     });
 }
 
+//
+//    function reload(){
+//            var container = document.getElementById("container");
+//            var content = container.innerHTML;
+//            container.innerHTML= content;
+//        }
+
+
 function outputUpdate(speednum) {
     document.querySelector('#speednum').value = vol;
 }
@@ -30,7 +40,7 @@ function initGlobe() {
 
     animate = function() {
         requestAnimationFrame(animate);
-    }
+    };
 
     animate();
 }
@@ -57,4 +67,8 @@ function setGlobeData() {
     }, 2000);
 }
 
-
+//
+//dataSource.bind("sync", function(e) {
+//  $('container').data("container").dataSource.read();
+//});
+//

@@ -1,17 +1,14 @@
       html {
         height: 100%;
         font-family: 'Orbitron';
+        background: #000000 url(stars.jpg) repeat;
         
       }
-      ::-webkit-slider-thumb, ::-moz-range-thumb, ::-ms-thumb
-      select {
+      ::-webkit-slider-thumb, ::-moz-range-thumb, ::-ms-thumb select {
           font-family: Orbitron:400;
           font-size: 15px;
           -webkit-appearance: none;
-
-
-
-      }
+ }
       
       body {
         margin: 0;

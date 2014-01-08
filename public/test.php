@@ -1,4 +1,4 @@
 <?php
 
 
-include('view/test2.html');
+include('view/MainScreen.html');

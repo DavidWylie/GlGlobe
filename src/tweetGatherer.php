@@ -40,7 +40,7 @@ if (is_string($_REQUEST['search'])) {
     $searchDb = strtolower(str_replace(' ','_',$searchTerm));
 } else {
     $searchDb = 'tweets';
-    $searchTerm = 'depressed';
+    $searchTerm = 'happy';
 
 }
 

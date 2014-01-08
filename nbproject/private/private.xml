@@ -5,24 +5,26 @@
         <group>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/css/scene.css</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/composer.json</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/dataList.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/img/ce.png</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/js/third-party/Tween.js</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/scene.html</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/js/third-party/three.min.js</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/index.html</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/vendor/autoload.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/img/world.jpg</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/test2.php</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/vendor/README.md</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/js/scene.js</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/composer.lock</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/src/tweetGatherer.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/test.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/test2.html</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/test.html</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/.htaccess</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/src/Db.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/index.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/data.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/get_data.html</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/times.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/MainScreen.html</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/getData.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/times.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/dataConversion.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/js/globe.js</file>
         </group>
     </open-files>

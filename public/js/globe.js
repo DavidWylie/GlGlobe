@@ -88,8 +88,9 @@ DAT.Globe = function(container, colorFn) {
   function init() {
 
     //container.style.color = '#fff';
-    container.style.color = 'red';
+   // container.style.color = 'red';
     container.style.font = '13px/20px Arial, sans-serif';
+    //container.style.prototype.
 
     var shader, uniforms, material;
     w = container.offsetWidth || window.innerWidth;
@@ -105,13 +106,13 @@ DAT.Globe = function(container, colorFn) {
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world.jpg');
+    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'earth.png');
 
     material = new THREE.ShaderMaterial({
 
           uniforms: uniforms,
           vertexShader: shader.vertexShader,
-          fragmentShader: shader.fragmentShader
+          fragmentShader: shader.fragmentShader,
 
         });
 
@@ -407,3 +408,18 @@ DAT.Globe = function(container, colorFn) {
 
 };
 
+var urls = [imgDir + 'stars.jpg', imgDir + 'stars.jpg',
+    imgDir + 'stars.jpg', imgDir + 'stars.jpg',
+    imgDir + 'stars.jpg', imgDir + 'stars.jpg'];
+var textureCube = THREE.ImageUtils.loadTextureCube(urls);
+var shader = THREE.ShaderUtils.lib["cube"];
+var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
+uniforms['tCube'].texture = textureCube; // textureCube has been init before
+var material = new THREE.MeshShaderMaterial({
+    fragmentShader: shader.fragmentShader,
+    vertexShader: shader.vertexShader,
+    uniforms: uniforms
+}); // build the skybox Mesh
+skyboxMesh = new THREE.Mesh(new THREE.Cube(10000, 10000, 10000, 1, 1, 1, null, true), material);
+// add it to the scene
+scene.addObject(skyboxMesh); 
