@@ -3,26 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/css/scene.css</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/composer.json</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/dataList.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/img/ce.png</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/index.html</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/vendor/autoload.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/img/world.jpg</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/test2.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/js/scene.js</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/composer.lock</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/src/tweetGatherer.php</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/test.php</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/test2.html</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/test.html</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/src/Db.php</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/index.php</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/data.php</file>
-            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/get_data.html</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/css/left.css</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/MainScreen.html</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/getData.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/composer.json</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/css/scene.css</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/vendor/autoload.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/test2.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/composer.lock</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/left.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/src/tweetGatherer.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/left.html</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/test.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/test.html</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/test2.html</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/data.php</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/view/get_data.html</file>
+            <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/MainScreen.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/times.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/dataConversion.php</file>
             <file>file:/C:/xampp/htdocs/projects/TweetVisualizer/public/js/globe.js</file>
