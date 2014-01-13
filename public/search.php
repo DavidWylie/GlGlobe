@@ -24,7 +24,7 @@ $tweetGather = new \ZendService\Twitter\Twitter($config);
 // Verify your credentials:
 $response = $tweetGather->account->verifyCredentials();
 if (!$response->isSuccess()) {
-    die('Something is wrong with my credentials!');
+    exit;
 }
 
 if (is_string($_REQUEST['search'])) {
@@ -41,7 +41,7 @@ if (is_string($_REQUEST['colour'])) {
 
 // Search for something:
 $options = array(
-    'geocode' => '51.45,0.05,40000km',
+    //'geocode' => '51.45,0.05,40000km',
     'count' => '100',
 );
 

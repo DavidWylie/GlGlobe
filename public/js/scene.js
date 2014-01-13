@@ -81,9 +81,12 @@ function addGlobeData(search, colour) {
     dataObj = dataResp.responseText;
     data = jQuery.parseJSON(dataObj);
     window.data = data;
-    if (data.length > 0) {
+    if (data && data.length > 0) {
         globe.addData(data, {format: 'magnitude', animated: false});
         globe.createPoints();
         globe.animate();
+    }
+    else {
+        alert("too many");
     }
 }
