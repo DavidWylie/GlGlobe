@@ -34,7 +34,7 @@ if (is_string($_REQUEST['search'])) {
 }
 
 if (is_string($_REQUEST['colour'])) {
-    $colour = $_REQUEST['search'];
+    $colour = $_REQUEST['colour'];
 } else {
     $colour = 0.4;
 }
