@@ -30,90 +30,36 @@
                     Entre Tweet database or else
                    
                     <br>
-                    <div class="styled-select">
-                        <select id="language" class="dropdown">
-                            <option value="default">Pick database...</option>
-                            <option value="one">Nelson Mandela</option>
-                            <option value="two">UK React</option>
-                            <option value="three">Live earth</option>
-                        </select>
-                    </div>
-                    <br>
-                    <br>
-
                     <div>
-
-                        <div id="related_default_content" class="show">
-                            Use the drop down menu above to pick a live dataset
-                        </div>
-
-
-                        <div id="related_one_content" class="hidden">
-                            Geo tagged tweets realating to the news of Nelson Mandela passing demonstrating the exponential growth of news items via socal networking.
-                            <br>
-                            <br>
-                        </div>
-
-                        <div id="related_two_content" class="hidden">
-                            weather..
-                            <br>
-                            <br>
-                        </div>
-
-                        <div id="related_three_content" class="hidden">
-                            Earth quake data...
-                            <br>
-                            <br>
-                        </div>
-                        <br>
-                        <br>
+                        <input id='searchBox' type='text' />
+                        <input id='button' type='submit' value='Search' />
                     </div>
-                    <br><br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <script>
                         var globe;
                         var container;
-                        var animate;
-                        var search;
-                        var time;
                         var data;
 
                         $(document).ready(function() {
-                            setDataList();
+                            initGlobe();
                         });
 
-                        $("#language").on("change", function() {
-                            id = "related_" + $(this).val() + "_content";
-                            $("#" + id).show().siblings().hide()
-                            search = $(this).val();
-                            timeObj = setMinTime().responseText;
-                            timeData = jQuery.parseJSON(timeObj);
-                            time = Number(timeData.minTime);
-                            initGlobe();
-                            setGlobeData();
-                        })
+                        $("#button").on("click", function() {
+                            search = $("#searchBox").val();
+                            colour = Math.random();
+                            addGlobeData(search,colour);
+                        });
                     </script>
 
                     <hr>
 
                     <p>
                         <br>
-                    <form method="get">  
-                        <!--  <h4> Speed </h4>  -->
-                        <label for=speed>speed</label>
-                        <input type="range" name="speed" min="0" max="2000" step="200" value="1000" id="speedsettings" onchange="outputUpdate(value)" >  
 
-                        <datalist id=range>
-                            <option>0</option>
-                            <option>200</option>
-                            <option>400</option>
-                            <option>600</option>
-                            <option>800</option>
-                            <option>1000</option>
-                        </datalist>
-
-                        <output name="result">  </output>  
-                    </form> 
-                    <br>
+                        <br>
                     </p>
                 </div>
             </div>

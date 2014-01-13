@@ -72,3 +72,20 @@ function setGlobeData() {
 //  $('container').data("container").dataSource.read();
 //});
 //
+function addGlobeData(search, colour) {
+    dataResp = $.ajax({
+        type: 'GET',
+        url: 'search.php?search=' + search + '&colour=' + colour,
+        async: false
+    });
+    dataObj = dataResp.responseText;
+    data = jQuery.parseJSON(dataObj);
+    window.data = data;
+    if (data.length > 0) {
+        for (i = 0; i < data.length; i += 1) {
+            globe.addData(data[i], {format: 'magnitude', animated: false});
+        }
+        globe.createPoints();
+        globe.animate();
+    }
+}
