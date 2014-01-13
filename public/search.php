@@ -52,7 +52,9 @@ foreach ($searchResponse->statuses as $tweet) {
     if ($tweet->coordinates) {
         $lat = $tweet->coordinates->coordinates[1];
         $lon = $tweet->coordinates->coordinates[0];
-        $parsedData[] = [$lat, $lon, $colour];
+        $parsedData[] = $lat;
+        $parsedData[] = $lon; 
+        $parsedData[] = $colour;
     }
 }
 echo json_encode($parsedData);
