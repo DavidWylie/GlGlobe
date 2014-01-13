@@ -79,14 +79,18 @@ function addGlobeData(search, colour) {
         async: false
     });
     dataObj = dataResp.responseText;
-    data = jQuery.parseJSON(dataObj);
-    window.data = data;
-    if (data && data.length > 0) {
-        globe.addData(data, {format: 'magnitude', animated: false});
-        globe.createPoints();
-        globe.animate();
-    }
-    else {
-        alert("too many");
+    if (dataObj) {
+        data = jQuery.parseJSON(dataObj);
+        window.data = data;
+        if (dataObj && data.length > 0) {
+            globe.addData(data, {format: 'magnitude', animated: false});
+            globe.createPoints();
+            globe.animate();
+        }
+        else {
+            alert("No Results");
+        }
+    } else {
+        alert("Please wait 10 mins and try again");
     }
 }
