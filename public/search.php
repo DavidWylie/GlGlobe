@@ -3,12 +3,12 @@ require_once('../init_autoloader.php');
 
 $config = array(
     'access_token' => array(
-        'token' => '36223830-Ka2R6vk4w3W3uWKN5EJefVhWLhaCIOf58m7EJ5saH',
-        'secret' => 'm7mmmtglNISQXlA9UcyXYd54bz05Y5HQHWRrj0HuVaM',
+        'token' => '36223830-2OZfBBjwiFo98lBgonopUUfzlJXM4BYnLZWJoKWBl',
+        'secret' => 'jsuF3UB8sv2N8kCdpNLZEyp1FNotlznQs0QKDtWJ2vqfW',
     ),
     'oauth_options' => array(
-        'consumerKey' => 'EYWBnpqHKDOKYp7qOgX7cA',
-        'consumerSecret' => '3ibcwX89JYlwfSMywG3HbjGsC08UEhq7CjS8QzTw',
+        'consumerKey' => 'p8IJVo4xSMC4mldyelwadg',
+        'consumerSecret' => 'cl6Sdtxt9Qn6WSAVjt63vA6PalvnnYsVzVwaZVdYZ8',
     ),
     'http_client_options' => array(
         'adapter' => 'Zend\Http\Client\Adapter\Curl',
