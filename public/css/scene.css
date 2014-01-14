@@ -90,8 +90,8 @@
           position:absolute;
           float: right;
           text-align: center;
-          top: 100px;
-          width: 270px;
+          top: 30px;
+          width: 290px;
           left: 1335px;
           background-color: rgba(0,0,0,0.2);
           border-radius: 3px;
@@ -149,7 +149,7 @@
 
           -moz-border-radius: 10px;
           border-radius: 10px; 
-          top: 200px;
+          top: 150px;
           box-shadow: 0px 0px 15px 0px #ffffff;
           text-shadow: 1px 1px 10px #888;
 
