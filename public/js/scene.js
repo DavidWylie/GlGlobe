@@ -62,7 +62,6 @@ function setGlobeData() {
                 globe.addData(data[i], {format: 'magnitude', animated: false});
             }
             globe.createPoints();
-            globe.animate();
         }
     }, 2000);
 }
