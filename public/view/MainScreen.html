@@ -39,16 +39,19 @@
                         <label>
                             Previous entries:
                         </label>
-                        <input id='outputsearch' type='text' value="Previous entries:"  />
-
+                        <div>
+                            <ul id='outputsearch'>
+     
+                            </ul>
+                        </div>
                         <script>
                            $(function(){
                                var arr = [];
                                $('#button').on('click', function(e){
                                   e.preventDefault();
-                                  arr.push($('#searchBox').val());
+                                  arr.push('<li class="previousSearch">' + $('#searchBox').val() + '</li>');
                                   $('#searchBox').val('');                     
-                                  $('#outputsearch').val(arr);
+                                  $('#outputsearch').html(arr);
                                });
                             });
                         </script>
