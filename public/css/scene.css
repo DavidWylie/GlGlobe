@@ -159,7 +159,7 @@
           border: 2px;
           border-style:solid;
           border-color:#ffffff;
-          //-webkit-border-radius: 10px;
+
           -moz-border-radius: 10px;
           border-radius: 10px; 
           top: 200px;
@@ -169,16 +169,7 @@
       }
 
 
-/*      ::-webkit-slider-thumb, ::-moz-range-thumb, ::-ms-thumb {
-                //-webkit-appearance: none;
-                background-color: #666;
-                width: 10px;
-                height: 20px;
-                input { font-size: 14px; font-weight: bold; font-padding: auto; }  
-                //input[type=range]:before { content: attr(min); padding-right:auto  ; }  
-                //input[type=range]:after { content: attr(max); padding-left:auto;   }  
 
-        }*/
 
 
         #speedsettings
@@ -192,8 +183,6 @@
                     box-shadow: 1px 2px 3px rgba(0,0,0,0.6);
                 }
 
-              //  input[type=range]:before { content: attr(min); padding-top:calc 0.5em  }  
-               // input[type=range]:after { content: attr(max);   }  
 
       output {   
           display:block;
@@ -206,10 +195,9 @@
 
       .styled-select select {
           -webkit-appearance: none;
-          //background: transparent;
+
           width: 150px;
-          //background-color: gray:
-          //padding: 1px;
+
           font-size: 15px;
           line-height: 1;
           border: 1px;
@@ -233,12 +221,7 @@
       } 
       
       
-/*      #outputsearch {
-          
-          width: 200px;
-          height: 200px;
-          text-align:inherit;
-      }*/
+
       
       #searchBox {
           -webkit-appearance: none;
@@ -287,7 +270,7 @@
           border-color: white;
           color: #ffffff;
           height: 25px;
-         // overflow: hidden;
+          overflow: hidden;
           border: 1px solid #ccc;
           box-shadow: 0px 0px 10px 0px #ffffff;
           text-shadow: 1px 1px 10px #888;
@@ -296,5 +279,7 @@
           text-align:initial;
           font-size: 25px;
           font-family: 'Orbitron';
+          position:inherit;
+          margin-left: 10px;
       }
       
