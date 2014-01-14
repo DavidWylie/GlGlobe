@@ -37,6 +37,9 @@ function initGlobe() {
     globe.addData([], {format: 'magnitude', animated: false});
     globe.createPoints();
     globe.animate();
+    setInterval(function() {
+        globe.rotate();
+    }, 80);
 }
 
 function setGlobeData() {
@@ -56,6 +59,7 @@ function setGlobeData() {
                 globe.addData(data[i], {format: 'magnitude', animated: true});
             }
             globe.createPoints();
+            globe.animate();
         }
     }, 2000);
 }
