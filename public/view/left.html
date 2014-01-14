@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>WebGL Globe</title>
+        <meta charset="utf-8">
+        <meta name="description" content="A realtime simulation of all tracked Twitter messages."/>
+        <link href='http://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Orbitron:400' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/left.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <script type="text/javascript" src="js/third-party/Detector.js"></script>
+        <script type="text/javascript" src="js/third-party/three.min.js"></script>
+        <script type="text/javascript" src="js/third-party/Tween.js"></script>
+        <script type="text/javascript" src="js/globe.js"></script>
+        <script type="text/javascript" src="js/scene.js"></script>
+    </head>
+    <body>
+        <div id="info">
+            <strong><a href="http://www.chromeexperiments.com/globe">WebGL Globe</a></strong> <span class="bull">&bull;</span> Created by <a href="http://developersdevelopersdevelopersdevelopers.ytmnd.com/"> David Wylie B.Sc.(Hons)</a> And <a href="http://youtu.be/BsmMvox1eJI?t=42s"> John Hardman (B.A.(Hons)</a> .Data acquired from Twitter streaming API
+        </div>
+
+        <div id="title">
+            <hr>
+            <h1 id="datatitle"><b>Data Painting</b></h1>
+            <div id="back" >  
+                <hr>
+                <div id="description">   
+                    <br>
+                    Select Tweet database: 
+                    <br>
+                    <div class="styled-select">
+                        <select id="language" class="dropdown">
+                            <option value="default">Pick database...</option>
+                            <option value="one">Nelson Mandela</option>
+                            <option value="two">UK React</option>
+                            <option value="three">Live earth</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div>
+
+                        <div id="related_default_content" class="show">
+                            Use the drop down menu above to pick a live dataset
+                        </div>
+
+
+                        <div id="related_one_content" class="hidden">
+                            Geo tagged tweets realating to the news of Nelson Mandela passing demonstrating the exponential growth of news items via socal networking.
+                            <br>
+                            <br>
+                        </div>
+
+                        <div id="related_two_content" class="hidden">
+                            weather..
+                            <br>
+                            <br>
+                        </div>
+
+                        <div id="related_three_content" class="hidden">
+                            Earth quake data...
+                            <br>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    <br><br>
+                    <script>
+                        var globe;
+                        var container;
+                        var animate;
+                        var search;
+                        var time;
+                        var data;
+
+                        $(document).ready(function() {
+                            setDataList();
+                        });
+
+                        $("#language").on("change", function() {
+                            id = "related_" + $(this).val() + "_content";
+                            $("#" + id).show().siblings().hide()
+                            search = $(this).val();
+                            timeObj = setMinTime().responseText;
+                            timeData = jQuery.parseJSON(timeObj);
+                            time = Number(timeData.minTime);
+                            initGlobe();
+                            setGlobeData();
+                        })
+                    </script>
+
+                    <hr>
+
+                    <p>
+                        <br>
+                    <form method="get">  
+                        <!--  <h4> Speed </h4>  -->
+                        <label for=speed>speed</label>
+                        <input type="range" name="speed" min="0" max="2000" step="200" value="1000" id="speedsettings" onchange="outputUpdate(value)" >  
+
+                        <datalist id=range>
+                            <option>0</option>
+                            <option>200</option>
+                            <option>400</option>
+                            <option>600</option>
+                            <option>800</option>
+                            <option>1000</option>
+                        </datalist>
+
+                        <output name="result">  </output>  
+                    </form> 
+                    <br>
+                    </p>
+                </div>
+            </div>
+
+
+            <div id="container">
+
+            </div>
+
+<!--            <div id="righthand">
+            </div>-->
+
+            <!--        <div id="730c21a4-ea0a-423c-b114-e5b7bd2f8601" class="control-sidebar control-sidebar-left" style="display: inline; position: absolute; top: 100px; left: 10px;">
+                        <div class="control-outter-container">
+                            <div id="77905238-ef38-4fd5-8fea-ad9b4fc4d44d" class="control-container">
+                                <a class="expand-icon" href="#" title="Click to expand or retract">+</a>
+                                <div class="header-title">Options</div>
+                                <div class="inner-container" style="display: none;">
+                                    <ul>
+                                        <li>
+                                            <button id="302d78c2-78f9-491e-9212-15d0dc58dbf2" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false">
+                                                <span class="ui-button-text">Hide Controls</span>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <label class="control-label" for="491d5902-098b-4a9c-9576-0ecefe206acc">GUI Transparency:</label>
+                                            <div id="491d5902-098b-4a9c-9576-0ecefe206acc" class="slider-control ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+                                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 90%;"></div>
+                                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 90%;"></a>
+                                            </div>
+                                            <input class="value-text" type="text" style="width: 40px; margin-left: 10px;">
+                                        </li>
+                                    </ul>
+                                    <div class="control-container-scrollbar-vertical">
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-outter-container">
+                            <div id="881215df-1e17-4229-9a63-a5cb248f432b" class="control-container">
+                                <a class="expand-icon" href="#" title="Click to expand or retract">-</a>
+                                <div class="header-title">Model</div>
+                                <div class="inner-container">
+                                    <ul>
+                                        <li>
+                                            <button id="bb0aa3c0-511e-41e2-90a6-d57448ca7790" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false">
+                                                <span class="ui-button-text">Start Animation</span>
+                                            </button>
+                                        </li>
+            
+                                        <li>
+                                            <label class="control-label" for="dfbd8eaf-84ce-4226-80b0-bd0499a0c9e5">Animation Speed</label>
+                                            <div id="dfbd8eaf-84ce-4226-80b0-bd0499a0c9e5" class="slider-control ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+                                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 25%;"></div>
+                                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 25%;"></a>
+                                            </div>
+                                            <input class="value-text" type="text" style="width: 40px; margin-left: 10px;">
+                                        </li>
+                                    </ul>
+                                    <div class="control-container-scrollbar-vertical">
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+    </body>
+
+</html>

@@ -10,8 +10,9 @@
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  */
-
+var SPIN_ID=0;
 var DAT = DAT || {};
+var globe;
 
 DAT.Globe = function(container, colorFn) {
 
@@ -84,6 +85,7 @@ DAT.Globe = function(container, colorFn) {
   var distance = 100000, distanceTarget = 100000;
   var padding = 40;
   var PI_HALF = Math.PI / 2;
+  var particles, particle, geo2;
 
   function init() {
 
@@ -106,7 +108,7 @@ DAT.Globe = function(container, colorFn) {
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'earth.png');
+    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world2.jpg');
 
     material = new THREE.ShaderMaterial({
 
@@ -408,6 +410,15 @@ DAT.Globe = function(container, colorFn) {
 
 };
 
+  function rotate(){
+    
+    rotation.x -= 0.003;
+    mesh.rotation.y += 0.02;
+    
+  }
+  
+
+
 var urls = [imgDir + 'stars.jpg', imgDir + 'stars.jpg',
     imgDir + 'stars.jpg', imgDir + 'stars.jpg',
     imgDir + 'stars.jpg', imgDir + 'stars.jpg'];
@@ -422,4 +433,15 @@ var material = new THREE.MeshShaderMaterial({
 }); // build the skybox Mesh
 skyboxMesh = new THREE.Mesh(new THREE.Cube(10000, 10000, 10000, 1, 1, 1, null, true), material);
 // add it to the scene
-scene.addObject(skyboxMesh); 
+container.addObject(skyboxMesh); 
+
+var rotation = {x: 0, y: 0}, incr_rotation = {x: 0, y: 0};
+
+function render() {
+    zoom(curZoomSpeed);
+
+    target.x += incr_rotation.x;
+    target.y += incr_rotation.y;
+    rotation.x += (target.x - rotation.x) * 0.1;
+    rotation.y += (target.y - rotation.y) * 0.1;
+}

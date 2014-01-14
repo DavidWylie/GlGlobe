@@ -8,17 +8,13 @@
           font-family: Orbitron:400;
           font-size: 15px;
           -webkit-appearance: none;
-      }
-      ::-webkit-scrollbar { 
-          display: none; 
-      }
+ }
       
       body {
         margin: 0;
         padding: 0;
         background: #000000 url(img/loading.gif) center center no-repeat;
         color: #ffffff;
-        /* font-family: sans-serif; */
         font-family: 'Orbitron';
         font-size: 13px;
         line-height: 20px;
@@ -32,9 +28,9 @@
       
       #container    {
           position:absolute;
-          float:outside;
-          left: -190px;
-          //right: 60px;
+          float:left;
+          //left: 190px;
+          right: 900px;
           top: -200px;
           //bottom: 50px;  
           width: 1000px;
@@ -85,7 +81,7 @@
         text-align: center;
         top: 20px;
         width: 270px;
-        left: 20px;
+        left: 1335px;
         background-color: rgba(0,0,0,0.2);
         border-radius: 3px;
         padding: 10px;
@@ -231,66 +227,3 @@
           border-radius: 5px;
           box-shadow: inset 1px 1px 15px rgba(0,0,0,0.6);
       } 
-      
-      
-/*      #outputsearch {
-          
-          width: 200px;
-          height: 200px;
-          text-align:inherit;
-      }*/
-      
-      #searchBox {
-          -webkit-appearance: none;
-          border-radius: 5px;
-          background-color: black;
-          line-height: 1;
-          border: 1px;
-          border-radius: 1px;
-          border-color: white;
-          color: #ffffff;
-          height: 25px;
-          overflow: hidden;
-          border: 1px solid #ccc;
-          box-shadow: 0px 0px 10px 0px #ffffff;
-          text-shadow: 1px 1px 10px #888;
-          text-align:inherit;
-      }
-      
-      
-      #button {
-          -webkit-appearance: none;
-          border-radius: 5px;
-          background-color: black;
-          line-height: 1;
-          border: 1px;
-          border-radius: 1px;
-          border-color: white;
-          color: #ffffff;
-          height: 25px;
-          overflow: hidden;
-          border: 1px solid #ccc;
-          box-shadow: 0px 0px 10px 0px #ffffff;
-          text-shadow: 1px 1px 10px #888;
-      }
-      
-      
-      #outputsearch {
-          -webkit-appearance: none;
-          border-radius: 5px;
-          background-color: black;
-          line-height: 1;
-          border: 1px;
-          border-radius: 1px;
-          border-color: white;
-          color: #ffffff;
-          height: 25px;
-         // overflow: hidden;
-          border: 1px solid #ccc;
-          box-shadow: 0px 0px 10px 0px #ffffff;
-          text-shadow: 1px 1px 10px #888;
-          width: 200px;
-          height: 200px;
-          text-align:initial;
-      }
-      

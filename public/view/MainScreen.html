@@ -25,18 +25,60 @@
             <h1 id="datatitle"><b>Data Painting</b></h1>
             <div id="back" >  
                 <hr>
+                <br>
                 <div id="description">   
                     <br>
                     Entre Tweet database or else
-                   
                     <br>
                     <div>
                         <input id='searchBox' type='text' />
                         <input id='button' type='submit' value='Search' />
+                        <br>
+                        <hr>
+                        <br>
+                        <label>
+                            Previous entries:
+                        </label>
+                        <input id='outputsearch' type='text' value="Previous entries:"  />
+
+                        <script>
+                           $(function(){
+                               var arr = [];
+                               $('#button').on('click', function(e){
+                                  e.preventDefault();
+                                  arr.push($('#searchBox').val());
+                                  $('#searchBox').val('');                     
+                                  $('#outputsearch').val(arr);
+                               });
+                            });
+                        </script>
+                        
+                        
+                        
+<!--                        <script>
+                            $( "searchBox" ).return(function() {
+                              var text = $( this ).text();
+                              $( "outputsearch" ).val( text );
+                            });
+                        </script>
+                        <script>
+                              $('#searchBox').keypress(function(event) {
+                                if (event.keyCode === 13) {
+                                 $( "outputsearch" ).val( text );
+                                 $(this).val('');
+                                         }
+                                     });
+                        </script>
+                        <script>
+                            $(document).ready(function() {
+                                    $('#searchBox').focus(function() {
+                                        $(this).val('');
+                                    });
+                                });​
+
+                        </script>-->
+                        
                     </div>
-                    <br>
-                    <br>
-                    <br>
                     <br>
                     <script>
                         var globe;
@@ -52,6 +94,8 @@
                             colour = Math.random();
                             addGlobeData(search,colour);
                         });
+                        
+
                     </script>
 
                     <hr>
