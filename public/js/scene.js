@@ -1,6 +1,8 @@
 var canvas;
 var container;
 var gl;
+var rotator;
+var dataLoop;
 
 function setMinTime() {
     return $.ajax({type: 'GET', url: 'times.php?search=' + search, async: false});
@@ -37,13 +39,21 @@ function initGlobe() {
     globe.addData([], {format: 'magnitude', animated: false});
     globe.createPoints();
     globe.animate();
-    setInterval(function() {
+    
+    animate = function() {
+        requestAnimationFrame(animate);
+    };
+
+    animate();
+    clearInterval(rotator);
+    rotator = setInterval(function() {
         globe.rotate();
     }, 80);
 }
 
 function setGlobeData() {
-    setInterval(function() {
+    clearInterval(dataLoop);
+    dataLoop = setInterval(function() {
         interval = 5000;
         time = time + interval;
         dataResp = $.ajax({
@@ -56,7 +66,7 @@ function setGlobeData() {
         window.data = data;
         if (data.length > 0) {
             for (i = 0; i < data.length; i += 1) {
-                globe.addData(data[i], {format: 'magnitude', animated: true});
+                globe.addData(data[i], {format: 'magnitude', animated: false});
             }
             globe.createPoints();
             globe.animate();
