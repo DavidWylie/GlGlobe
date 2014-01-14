@@ -413,7 +413,6 @@ DAT.Globe = function(container, colorFn) {
   function rotate(){
     
     rotation.x -= 0.003;
-    mesh.rotation.y += 0.02;
     
   }
   

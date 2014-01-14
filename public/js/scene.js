@@ -89,6 +89,7 @@ function addGlobeData(search, colour) {
         }
         else {
             alert("No Results");
+
         }
     } else {
         alert("Please wait 10 mins and try again");
