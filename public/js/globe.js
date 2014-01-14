@@ -167,6 +167,10 @@ DAT.Globe = function(container, colorFn) {
     }, false);
   }
 
+  rotate = function() {
+        target.x -= 0.006;
+  };
+
   addData = function(data, opts) {
     var lat, lng, size, color, i, step, colorFnWrapper;
 
@@ -353,7 +357,7 @@ DAT.Globe = function(container, colorFn) {
 
   function render() {
     zoom(curZoomSpeed);
-    target.x -= 0.0006;
+    
     rotation.x += (target.x - rotation.x) * 0.1;
     rotation.y += (target.y - rotation.y) * 0.1;
     distance += (distanceTarget - distance) * 0.3;
@@ -369,7 +373,6 @@ DAT.Globe = function(container, colorFn) {
 
   init();
   this.animate = animate;
-
 
   this.__defineGetter__('time', function() {
     return this._time || 0;
@@ -398,12 +401,13 @@ DAT.Globe = function(container, colorFn) {
     this.points.morphTargetInfluences[index] = leftover;
     this._time = t;
   });
-
+  
+  this.rotate = rotate;
   this.addData = addData;
   this.createPoints = createPoints;
   this.renderer = renderer;
   this.scene = scene;
-
+  
   return this;
 
 };

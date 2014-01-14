@@ -94,14 +94,18 @@
 
                         $(document).ready(function() {
                             initGlobe();
+                            setInterval(function() {
+                                globe.rotate();
+                            }, 80);
                         });
 
                         $("#button").on("click", function() {
                             search = $("#searchBox").val();
                             colour = Math.random();
-                            addGlobeData(search,colour);
+                            addGlobeData(search, colour);
                         });
-                        
+
+
 
                     </script>
 

@@ -37,12 +37,6 @@ function initGlobe() {
     globe.addData([], {format: 'magnitude', animated: false});
     globe.createPoints();
     globe.animate();
-
-    animate = function() {
-        requestAnimationFrame(animate);
-    };
-
-    animate();
 }
 
 function setGlobeData() {
@@ -59,7 +53,7 @@ function setGlobeData() {
         window.data = data;
         if (data.length > 0) {
             for (i = 0; i < data.length; i += 1) {
-                globe.addData(data[i], {format: 'magnitude', animated: false});
+                globe.addData(data[i], {format: 'magnitude', animated: true});
             }
             globe.createPoints();
         }
