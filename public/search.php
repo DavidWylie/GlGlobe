@@ -1,5 +1,5 @@
 <?php
-require_once('../init_autoloader.php');
+require_once('init_autoloader.php');
 
 $config = array(
     'access_token' => array(
